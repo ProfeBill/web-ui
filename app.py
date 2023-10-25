@@ -30,6 +30,14 @@ def VistaGuardarUsuario():
    nuevo_usuario = Usuario(cedula,nombre,apellido,correo,direccion,telefono,codigo_departamento,codigo_municipio)
    ControladorUsuarios.Insertar(nuevo_usuario)
    return "usuario guardado"
+
+@app.route("/view/user")
+def vistaVerUsuario():
+   cedula = request.args["cedula"]
+   usuario = ControladorUsuarios.BuscarPorCedula(cedula)
+   return render_template("usuario.html", user = usuario )
+
+
     
 # Esta linea permite que nuestra aplicación se ejecute individualmente
 if __name__=='__main__':
