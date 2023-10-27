@@ -22,7 +22,44 @@
             <td>Apellido</td>
             <td>{{user.apellido}}</td>
         </tr>
+
     </table>
+
+    <h2>Familiares</h2>
+
+    <table>
+        <!-- El elemento thead describe el area de encabezado en  la tabla -->
+        <thead style="font-weight: bold;">
+            <tr>
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>Parentezco</td>
+
+            </tr>
+        </thead>
+
+        <!-- El elemento tbody describe el cuerpo de la tabla -->
+        <tbody>
+
+            {% for f in user.familiares %}
+
+            <tr>
+                <td>{{f.nombre }}</td>
+                <td>{{f.apellido }}</td>
+                <td>{{f.parentezco }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+
+        </tbody>
+        <!-- tfoot se usa para describir el pie de la tabla -->
+        <tfoot style="background-color: lightblue;">
+
+        </tfoot>
+    </table>
+
 </body>
 
 </html>
